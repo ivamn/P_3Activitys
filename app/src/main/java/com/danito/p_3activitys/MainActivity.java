@@ -30,12 +30,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(v.getId()){
             case R.id.boton1:
                 Intent i1 = new Intent(this, Activity1.class);
-                i1.putExtra("activity", "Activity Uno");
+                i1.putExtra("activity", "Activity 1 iniciada desde la actividad principal");
                 startActivityForResult(i1, codActivity1);
                 break;
             case R.id.boton2:
                 Intent i2 = new Intent(this, Activity2.class);
-                i2.putExtra("activity", "Activity Dos");
+                i2.putExtra("activity", "Activity 1 iniciada desde la actividad principal");
                 startActivityForResult(i2, codActivity2);
                 break;
         }

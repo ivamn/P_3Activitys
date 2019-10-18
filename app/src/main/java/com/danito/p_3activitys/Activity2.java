@@ -19,17 +19,28 @@ public class Activity2 extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity2);
 
-        TextView t = findViewById(R.id.textview);
-
         Intent datosRecibidos = getIntent();
-        t.setText(datosRecibidos.getStringExtra("activity"));
+
 
         Toast.makeText(getApplicationContext(),
-                datosRecibidos.getStringExtra("activity") + "<- Mensaje desde la activity principal",
+                datosRecibidos.getStringExtra("activity"),
                 Toast.LENGTH_LONG).show();
 
-        Intent datosEnviar = new Intent();
-        datosEnviar.putExtra("mensaje", "Finalizada activity 2");
-        setResult(RESULT_OK, datosEnviar);
+        Button boton = findViewById(R.id.boton);
+        boton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent datosEnviar = new Intent();
+                datosEnviar.putExtra("mensaje", "Finalizada activity 2");
+                setResult(RESULT_OK, datosEnviar);
+                finish();
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        setResult(RESULT_CANCELED);
+        finish();
     }
 }
